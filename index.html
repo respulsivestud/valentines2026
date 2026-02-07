@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💝</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="floating-elements"></div>
+
+    <div class="music-controls" id="musicControls">
+        <button class="music-btn" id="musicToggle">🎵 Play Music</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source id="musicSource" src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <!-- Question 1: Do you like me? -->
+        <div id="question1" class="question-section">
+            <h1 id="valentineTitle">Sukhada, my love...</h1>
+            <h2 id="question1Text">Do you like me?</h2>
+            <div class="buttons">
+                <button class="cute-btn" id="yesBtn1" onclick="showNextQuestion(2)">Yes</button>
+                <button class="cute-btn" id="noBtn1" onmouseover="moveButton(this)" ontouchstart="moveButton(this)">No</button>
+            </div>
+            <div class="secret-answer">
+                <button class="cute-btn" id="secretAnswerBtn" onclick="showNextQuestion(2)">I don't like you, I love you! ❤️</button>
+            </div>
+        </div>
+
+        <!-- Question 2: Love Meter -->
+        <div id="question2" class="question-section hidden">
+            <h2 id="question2Text">How much do you love me?</h2>
+            <p id="startText">This much!</p>
+            <div class="love-meter">
+                <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
+                <p>
+                    <span class="love-value-container">
+                        <span id="loveValue">100</span>%
+                    </span>
+                    <span id="extraLove" class="hidden">And beyond! 🥰</span>
+                </p>
+            </div>
+            <button class="cute-btn" id="nextBtn" onclick="showNextQuestion(3)">Next ❤️</button>
+        </div>
+
+        <!-- Question 3: Be my Valentine? -->
+        <div id="question3" class="question-section hidden">
+            <h2 id="question3Text">Will you be my Valentine? 🌹</h2>
+            <div class="buttons">
+                <button class="cute-btn" id="yesBtn3" onclick="celebrate()">Yes!</button>
+                <button class="cute-btn" id="noBtn3" onmouseover="moveButton(this)" ontouchstart="moveButton(this)">No</button>
+            </div>
+        </div>
+
+        <!-- Celebration -->
+        <div id="celebration" class="question-section hidden">
+            <h1 id="celebrationTitle" class="celebration-text">Yay! 🎉💝💖💝💓</h1>
+            <p id="celebrationMessage" class="celebration-text">Now come get your gift!</p>
+            <div id="celebrationEmojis" class="hearts-explosion">🎁💖🤗💝💋❤️💕</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
