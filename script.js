@@ -166,6 +166,36 @@ if (loveMeter) {
     });
 }
 
+let noClickCount = 0;
+const noMessages = [
+    { text: "Hmm... that's not an option! 😤💕", subtext: "Would you like to try again? (Hint: there's only one right answer 😉)" },
+    { text: "Still no?? That button doesn't work! 🚫💖", subtext: "Come on, you know you want to say Yes! 🥺" },
+    { text: "Nice try, but NO is broken! 😜❤️", subtext: "The Yes button is right there waiting for you! 👉" },
+    { text: "I'm not giving up that easily! 💪💝", subtext: "And neither should you... just say Yes already! 🥰" },
+    { text: "You're really testing me huh? 😂💗", subtext: "But my love is stronger than your No's! 💪❤️" },
+];
+
+function handleNoValentine() {
+    const noResponse = document.getElementById('noResponse');
+    const noResponseText = document.getElementById('noResponseText');
+    const tryAgainText = document.getElementById('tryAgainText');
+    const yesBtn = document.getElementById('yesBtn3');
+
+    const message = noMessages[Math.min(noClickCount, noMessages.length - 1)];
+    noResponseText.textContent = message.text;
+    tryAgainText.textContent = message.subtext;
+
+    noResponse.classList.remove('hidden');
+    noResponse.classList.add('shake');
+    setTimeout(() => noResponse.classList.remove('shake'), 500);
+
+    // Make the Yes button grow bigger with each No click
+    noClickCount++;
+    const scale = 1 + (noClickCount * 0.15);
+    yesBtn.style.transform = `scale(${scale})`;
+    yesBtn.style.transition = 'transform 0.3s ease';
+}
+
 function celebrate() {
     document.querySelectorAll('.question-section').forEach(q => q.classList.add('hidden'));
 

@@ -52,9 +52,13 @@
         <!-- Question 3: Be my Valentine? -->
         <div id="question3" class="question-section hidden">
             <h2 id="question3Text">Will you be my Valentine? 🌹</h2>
+            <div id="noResponse" class="no-response hidden">
+                <p id="noResponseText">Hmm... that's not an option! 😤💕</p>
+                <p id="tryAgainText">Would you like to try again? (Hint: there's only one right answer 😉)</p>
+            </div>
             <div class="buttons">
                 <button class="cute-btn" id="yesBtn3" onclick="celebrate()">Yes!</button>
-                <button class="cute-btn" id="noBtn3" onmouseover="moveButton(this)" ontouchstart="moveButton(this)">No</button>
+                <button class="cute-btn" id="noBtn3" onclick="handleNoValentine()">No</button>
             </div>
         </div>
 
